@@ -658,3 +658,32 @@
     padding-inline: 1.125rem;
   }
 }
+
+/* ── Stack overview table (modal) ── */
+.stack-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 4vw, 1.75rem);
+}
+
+@media (min-width: 640px) {
+  .stack-overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 2.5vw, 1.5rem);
+  }
+
+  .stack-overview-grid > :last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stack-overview-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 1.75rem);
+  }
+
+  .stack-overview-grid > :last-child {
+    grid-column: auto;
+  }
+}

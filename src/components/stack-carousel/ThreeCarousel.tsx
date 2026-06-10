@@ -6,7 +6,7 @@ import { useCarousel } from "./useCarousel";
 export function ThreeCarousel() {
   const carousel = useCarousel();
   const [focusOpen, setFocusOpen] = useState(false);
-  const [hint, setHint] = useState("Click stack to expand · drag or use arrows");
+  const [hint, setHint] = useState("Click stack to view all · drag or use arrows");
 
   const openFocus = useCallback(() => {
     setFocusOpen(true);
@@ -21,8 +21,8 @@ export function ThreeCarousel() {
     const update = () => {
       setHint(
         mq.matches
-          ? "Tap to expand · drag to rotate"
-          : "Click stack to expand · drag or use arrows",
+          ? "Tap to view full stack · drag to rotate"
+          : "Click stack to view all · drag or use arrows",
       );
     };
     update();
@@ -52,11 +52,7 @@ export function ThreeCarousel() {
         />
       </div>
 
-      <StackFocusModal
-        open={focusOpen}
-        initialIndex={carousel.activeIndex}
-        onClose={closeFocus}
-      />
+      <StackFocusModal open={focusOpen} onClose={closeFocus} />
     </>
   );
 }
