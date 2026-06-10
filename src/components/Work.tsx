@@ -96,8 +96,6 @@ function ProjectCard({ p }: { p: ProjectData }) {
     return () => mq.removeEventListener("change", update);
   }, []);
 
-  const mailto = `mailto:nisargpanchal40@gmail.com?subject=${encodeURIComponent(`Inquiry about ${p.name}`)}&body=${encodeURIComponent(`Hi Nisarg,\n\nI'd like to learn more about your project "${p.name}".\n\n`)}`;
-
   return (
     <div
       ref={ref}
@@ -124,11 +122,13 @@ function ProjectCard({ p }: { p: ProjectData }) {
           ))}
         </div>
         <a
-          href={mailto}
+          href={p.github}
+          target="_blank"
+          rel="noopener noreferrer"
           data-hover
           className="group inline-flex items-center gap-3 pt-4 text-sm uppercase tracking-[0.2em]"
         >
-          Discuss Project
+          View on GitHub
           <span className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-all group-hover:border-electric group-hover:bg-electric/10">
             <ArrowUpRight size={16} />
           </span>
